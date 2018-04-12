@@ -223,4 +223,29 @@ wt_summary <- chicks %>%
             wt_min = min(weight))
 
 
+# Quantiles ---------------------------------------------------------------
+#median = 50% quartile
+#lower and upper quartile
+wt_summary <- chicks %>% 
+  filter( Time == 21) %>% 
+  group_by(Diet) %>% 
+  summarise(wt_mean = mean (weight),
+            wt_median = median(weight),
+            wt_quart2 = quantile(weight, 0.25),
+            wt_var = var(weight),
+            wt_sd = sd(weight),
+            wt_min = min(weight),
+            wt_quart1 = quantile(weight, 0.25))
+wt_summary <- chicks %>% 
+  filter( Time == 21) %>% 
+  group_by(Diet) %>% 
+  summarise(wt_mean = mean (weight),
+            wt_median = median(weight),
+            wt_var = var(weight),
+            wt_sd = sd(weight),
+            wt_min = min(weight),
+            wt_quart1 = quantile(weight, 0.25),
+            wt_quart2 = quantile(weight, 0.5),
+            wt_quart3 = quantile(weight, 0.75
+                                 ))
 
