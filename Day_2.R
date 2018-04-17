@@ -127,7 +127,7 @@ sa_time <- sa_time %>%
 
 
 sa_long <- sa_time %>% 
-  gather(key = "time_type", value = "minutes", -human)
+  gather(key = "time_type", value = "minutes", -human, -geo)
 
 
 # qualitative -------------------------------------------------------------
@@ -197,7 +197,7 @@ sa_count <- sa_long %>%
  #Rob said oh no, we have to remove that one value causing problems
  
  sa_clean <- sa_long %>% 
-   filter(minutes < 10000)
+   filter(minutes < 100)
  
 #here we go again!
  ggplot(data = sa_clean, aes(x= minutes)) +
