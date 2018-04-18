@@ -193,9 +193,6 @@ ggplot(data = ecklonia, aes(x = variable, y = value, fill =  site)) +
   geom_boxplot() +
   coord_flip() 
 
-ggplot(data = ecklonia, aes(x = stipe_length, y = stipe_diameter, fill =  site)) +
-  geom_boxplot() +
-  coord_flip() 
 
 ecklonia1 <- read_csv("ecklonia.csv")
 # By using the gatehr function it alters ecklonia to ecklonia1
