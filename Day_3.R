@@ -1,4 +1,4 @@
-Day_3.R
+#Day_3.R
 #generating a Cullen and Frey graph
 
 
@@ -258,13 +258,7 @@ ggplot(data = sunflower, aes(y = n_petals, x = petals, fill = petals)) +
   coord_flip() +
   labs( x = "", y = "Number of petals")
 
-# testing normality of dataset
-shapiro.test(sunflower$n_petals)
-# p- value = 4.317e-12 (significant difference)
-
-sunflower %>%
-  group_by(petals) %>%
-  summarise(r_norm_dist = as.numeric(shapiro.test(n_petals)[2]))
+# testing assumptions for dataset
 
 sunflower %>%
   group_by(petals) %>%
@@ -283,4 +277,4 @@ t.test(n_petals ~ petals, data = sunflower, var.equal = TRUE, alternative = "gre
 
 #the basic t-test reflects a p-value od 2.2e-16 (p < 0.05),
 #thus H0 is rejected
-
+# RWS: no
