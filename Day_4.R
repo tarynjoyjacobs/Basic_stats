@@ -14,7 +14,6 @@
 
 library(tidyverse)
 library(ggpubr)
-library(ggplot2)
 
 #load the data
 chicks <- as_tibble(ChickWeight)
@@ -47,7 +46,7 @@ summary(chicks.aov1)
 # we do not accept the null hypothesis, therefore we accept the alternative hypothesis 
 #that there is a signifivant difference in chicken mass at day 21 based on the diets
 
-ggplot(chicks_21, aes(x = Time, y = weight)) +
+ggplot(chicks_21, aes(x = as.factor(Time), y = weight)) +
   geom_boxplot(aes(fill = Diet), notch = TRUE)
 #suggestions of where the significant differenec might be
 
