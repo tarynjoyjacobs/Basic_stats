@@ -6,7 +6,7 @@
 # Load libraries ----------------------------------------------------------
 
 library(tidyverse)
-library(Rmisc)
+# library(Rmisc) # Unfortunately this overrides many dplyr functions
 
 # load data ---------------------------------------------------------------
 
@@ -31,7 +31,7 @@ snakes_summary <- snakes %>%
             snakes_sd = sd(openings))
 snakes_summary 
 
-snakes.summary2 <- summarySE(data = snakes, 
+snakes.summary2 <- Rmisc::summarySE(data = snakes, 
                              measurevar = "openings", 
                              groupvars = c("day"))
 snakes.summary2
@@ -111,7 +111,7 @@ moths.summary2 <- summarySE(data = moths,
                              groupvars = c("trap"))
 
 moths.cnt.aov <- aov(count ~ Location, data = moths)
-summary(moths.loc.aov)
+summary(moths.cnt.aov)
 
 moths.all.aov <- aov(count ~ Location + trap , data = moths)
 summary(moths.all.aov)
